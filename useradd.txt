@@ -1,0 +1,97 @@
+1. просмотр списка пользователей системы 
+[root@localhost ~]# vim /etc/passwd
+root:$6$432i34ZEGoZkWcZw$VfY69D4.3pPNrW.RpJKmY8cnDdI4MlipvED3v/e6o6ZsPTTJ/GQuCVs
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:65534:65534:Kernel Overflow User:/:/sbin/nologin
+unbound:x:999:999:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+tss:x:59:59:Account used for TPM access:/dev/null:/sbin/nologin
+systemd-coredump:x:998:995:systemd Core Dumper:/:/sbin/nologin
+systemd-network:x:192:192:systemd Network Management:/:/sbin/nologin
+systemd-resolve:x:193:193:systemd Resolver:/:/sbin/nologin
+systemd-timesync:x:997:994:systemd Time Synchronization:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+polkitd:x:996:993:User for polkitd:/:/sbin/nologin
+saslauth:x:995:76:Saslauthd user:/run/saslauthd:/sbin/nologin
+dnsmasq:x:992:992:Dnsmasq DHCP and DNS server:/var/lib/dnsmasq:/usr/sbin/nologin
+setroubleshoot:x:991:991::/var/lib/setroubleshoot:/sbin/nologin
+radvd:x:75:75:radvd user:/:/sbin/nologin
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+geoclue:x:990:990:User for geoclue:/var/lib/geoclue:/sbin/nologin
+qemu:x:107:107:qemu user:/:/sbin/nologin
+kojibuilder:x:989:988::/builddir:/bin/bash
+chrony:x:988:987::/var/lib/chrony:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+pesign:x:987:986:Group for the pesign signing daemon:/var/run/pesign:/sbin/nolog
+in
+ZINA228:x:1000:1000::/home/ZINA228:/bin/bash
+...
+
+2. Создание пользователя в системе (в режиме администратора)
+[root@localhost ~]# useradd -m -s /bin/bash ZINA228 
+ ...
+
+ZINA228:x:1000:1000::/home/ZINA228:/bin/bash
+3.Смена пароля пользователя в режиме администратора
+
+[root@localhost ~]# passwd ZINA228
+Changing password for user ZINA228.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: all authentication tokens updated successfully.
+
+4.Просмотр файла с теневыми паролями пользователей (в режиме администратора)
+[root@localhost ~]# vim /etc/shadow
+root:x:0:0:root:/root:/bin/bash
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:65534:65534:Kernel Overflow User:/:/sbin/nologin
+ 
+root:$6$432i34ZEGoZkWcZw$VfY69D4.3pPNrW.RpJKmY8cnDdI4MlipvED3v/e6o6ZsPTTJ/GQuCVs
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:65534:65534:Kernel Overflow User:/:/sbin/nologin
+root:$6$432i34ZEGoZkWcZw$VfY69D4.3pPNrW.RpJKmY8cnDdI4MlipvED3v/e6o6ZsPTTJ/GQuCVs
+OH5VwiOC2yPv0rhLhxoHCEgRuxznzN.:18604:0:99999:7:::
+bin:*:18473:0:99999:7:::
+daemon:*:18473:0:99999:7:::
+adm:*:18473:0:99999:7:::
+lp:*:18473:0:99999:7:::
+sync:*:18473:0:99999:7:::
+shutdown:*:18473:0:99999:7:::
+halt:*:18473:0:99999:7:::
+mail:*:18473:0:99999:7:::
+operator:*:18473:0:99999:7:::
+games:*:18473:0:99999:7:::
+ftp:*:18473:0:99999:7:::
+nobody:*:18473:0:99999:7:::
+unbound:!!:18604::::::
+tss:!!:18604::::::
+systemd-coredump:!!:18604::::::
+systemd-network:!!:18604::::::
+systemd-resolve:!!:18604::::::
+systemd-timesync:!!:18604::::::
+dbus:!!:18604::::::
+polkitd:!!:18604::::::
+saslauth:!!:18604::::::
+dnsmasq:!*:18604::::::
+setroubleshoot:!!:18604::::::
+radvd:!!:18604::::::
+rpc:!!:18604:0:99999:7:::
+rpcuser:!!:18604::::::
+geoclue:!!:18604::::::

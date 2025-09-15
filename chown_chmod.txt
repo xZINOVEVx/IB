@@ -1,0 +1,11 @@
+Смена владельца файла/папки:
+sudo chown <имя владельца>:<имя группы> <имя файла/папки>
+sudo chown user1:group1 /home/admin1/Fold1
+
+Смена прав доступа к файлу/папке:
+sudo chmod 775 <имя файла/папки>  
+sudo chmod ugo-rwx <имя файла/папки>  //удаление всех прав
+sudo chmod ugo+rwx <имя файла/папки>  //добавление всех прав 
+
+sudo chmod u+rw /home/alex/Fold2
+
